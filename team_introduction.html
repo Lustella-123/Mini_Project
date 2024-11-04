@@ -60,6 +60,51 @@
             margin-bottom: 10px;
         }
 
+        .guestbook {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        .guestbook form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .guestbook input, .guestbook textarea {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .guestbook button {
+            background-color: #0073e6;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .guestbook button:hover {
+            background-color: #005bb5;
+        }
+
+        .guestbook-entries {
+            margin-top: 20px;
+        }
+
+        .entry {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
         footer {
             background-color: #0073e6;
             color: white;
@@ -106,8 +151,32 @@
         </div>
     </section>
     
+    <section class="guestbook">
+        <h2>방명록</h2>
+        <form id="guestbook-form">
+            <input type="text" id="name" placeholder="이름" required>
+            <textarea id="message" rows="4" placeholder="메시지를 입력하세요" required></textarea>
+            <button type="button" onclick="addEntry()">방명록에 남기기</button>
+        </form>
+        <div class="guestbook-entries" id="guestbook-entries"></div>
+    </section>
+    
     <footer>
         <p>우리 팀과 함께 하고 싶다면 <a href="mailto:contact@ourteam.com">contact@ourteam.com</a>으로 연락 주세요!</p>
     </footer>
+
+    <script>
+        function addEntry() {
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            if (name && message) {
+                const entryDiv = document.createElement('div');
+                entryDiv.classList.add('entry');
+                entryDiv.innerHTML = `<strong>${name}</strong><p>${message}</p>`;
+                document.getElementById('guestbook-entries').appendChild(entryDiv);
+                document.getElementById('guestbook-form').reset();
+            }
+        }
+    </script>
 </body>
 </html>
