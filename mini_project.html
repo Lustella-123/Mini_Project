@@ -28,31 +28,73 @@
         }
         .teamintro {
             display: flex;
-            justify-content: center;
+            justify-content: space-evenly;
             margin: 20px;
         }
         .teamcard {
-            border: 1px solid #000;
-            border-radius: 10px;
+            background-color: white;
+            width: 200px;
+            height: 300px;
+            border-radius: 15px;
             padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
             margin: 0 20px;
+        }
+        .teamcard {
+            transition: all 0.3s ease;
+        }
+        .teamcard:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         .record {
             border: 1px solid #48cae4;
+           padding: 20px;
+           margin: 20px auto;
+           max-width: 500px;
+           background-image: url('https://images.unsplash.com/photo-1484291470158-b8f8d608850d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+           background-size: cover; /* 이미지가 요소에 맞게 채워지도록 */
+           background-position: center; /* 이미지를 중앙에 위치하도록 */
+        }
+
+        .record-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
             padding: 20px;
-            margin: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .record-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .record-card .name {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .record-card .content {
+            color: #666;
+            line-height: 1.5;
         }
     </style>
 </head>
 <body>
     <div class="header">
     <h1>래프트(From Garbage)</h1>
-    <p>팀 설명</p>
     </div>
     <div class="content">
         <div>
         <h2>팀 소개 내용</h2>
-        <h3>팀 이름</h3>
         <p>팀 소개 내용 ---</p>
     </div>
         <div class = "raft">
@@ -62,32 +104,43 @@
     <div class="teamintro">
         <div class="teamcard">
             <img src="./img/teamintro.jpg" alt="teamintro">
+            <hr>
             <h3>한성우</h3>
             <p>팀 소개 내용 ---</p>
         </div>
         <div class="teamcard">
             <img src="./img/teamintro.jpg" alt="teamintro">
+            <hr>
             <h3>박재성</h3>
             <p>팀 소개 내용 ---</p>
         </div>
         <div class="teamcard">
             <img src="./img/teamintro.jpg" alt="teamintro">
+            <hr>
             <h3>방동혁</h3>
             <p>팀 소개 내용 ---</p>
         </div>
         <div class="teamcard">
             <img src="./img/teamintro.jpg" alt="teamintro">
+            <hr>
             <h3>이승찬</h3>
             <p>팀 소개 내용 ---</p>
         </div>
     </div>
     <div class="record">
         <h2>방명록 남기기</h2>
+        <hr>
         <h3>이름</h3>
         <input type="text">
-        <h3>내용</h3>
+        <p>내용</p>
         <input type="text">
-        <button>저장하기</button>
+    </div>
+    <div class="record-container">
+        <div class="record-card">
+            <div>홍길동</div>
+            <hr>
+            <div>방명록 내용이 여기에 들어갑니다.</div>
+        </div>
     </div>
 </body>
 </html>
